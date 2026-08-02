@@ -1,7 +1,10 @@
 // export default function LandingPage(){
 //   return <div>Login Page</div>;
 // }
-
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import { Link } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BarChartIcon from "@mui/icons-material/BarChart";
@@ -22,6 +25,21 @@ import {
 
 function LandingPage()
 {
+    const aiTools = [
+    {
+        title: "التنبؤ بأمراض الكبد",
+        description:
+        "اكتشف احتمالية الإصابة بأمراض الكبد باستخدام نموذج تعلم آلي مدرب بدقة.",
+        path: "/liver-prediction",
+    },
+        {
+            title: "التنبؤ بأمراض الكبد",
+            description:
+            "اكتشف احتمالية الإصابة بأمراض الكبد باستخدام نموذج تعلم آلي مدرب بدقة.",
+            path: "/liver-prediction",
+        }
+];
+
     const features = [
         {
         icon: <MonitorHeartIcon sx={{ fontSize: 50, color: "#1976d2" }} />,
@@ -115,6 +133,158 @@ function LandingPage()
             </Stack>
         </Container>
     </Box>
+    <Box
+    sx={{
+        py: 10,
+        background: "linear-gradient(180deg,#ffffff,#eef7ff)",
+    }}
+    >
+    <Container maxWidth="lg">
+        <Typography
+        variant="h3"
+        align="center"
+        fontWeight="bold"
+        sx={{ mb: 2 }}
+        >
+        🧠 أدوات الذكاء الاصطناعي
+        </Typography>
+
+        <Typography
+        align="center"
+        color="text.secondary"
+        sx={{
+            mb: 7,
+            fontSize: 18,
+        }}
+        >
+        استكشف أدواتنا الطبية المعتمدة على الذكاء الاصطناعي لمساعدتك في التنبؤ بالأمراض بسهولة.
+        </Typography>
+
+        <Grid container justifyContent="center" spacing={4}>
+        {aiTools.map((tool, index) => (
+            <Grid item xs={12} sm={10} md={6} lg={5} key={index}>
+            <Card
+                sx={{
+                borderRadius: 5,
+                p: 2,
+                height: "100%",
+                border: "1px solid #E3F2FD",
+                boxShadow: "0 10px 30px rgba(0,0,0,.08)",
+                transition: ".35s",
+
+                "&:hover": {
+                    transform: "translateY(-10px)",
+                    boxShadow: "0 20px 45px rgba(25,118,210,.25)",
+                },
+                }}
+            >
+                <CardContent sx={{ textAlign: "center" }}>
+                <Box
+                    sx={{
+                    width: 85,
+                    height: 85,
+                    borderRadius: "50%",
+                    background: "#E3F2FD",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    mx: "auto",
+                    mb: 3,
+                    }}
+                >
+                    <PsychologyIcon
+                    sx={{
+                        fontSize: 48,
+                        color: "#1976d2",
+                    }}
+                    />
+                </Box>
+
+                <Typography
+                    variant="h5"
+                    fontWeight="bold"
+                    gutterBottom
+                >
+                    {tool.title}
+                </Typography>
+
+                <Typography
+                    color="text.secondary"
+                    sx={{
+                    mb: 3,
+                    lineHeight: 1.8,
+                    }}
+                >
+                    {tool.description}
+                </Typography>
+
+                <Box
+                    sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 1.5,
+                    mb: 4,
+                    }}
+                >
+                    <Typography
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 1,
+                    }}
+                    >
+                    <CheckCircleOutlineIcon color="success" />
+                    نتيجة فورية خلال ثوانٍ
+                    </Typography>
+
+                    <Typography
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 1,
+                    }}
+                    >
+                    <CheckCircleOutlineIcon color="success" />
+                    يعتمد على نموذج تعلم آلي مدرب
+                    </Typography>
+
+                    <Typography
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 1,
+                    }}
+                    >
+                    <CheckCircleOutlineIcon color="success" />
+                    لا يتطلب تسجيل الدخول
+                    </Typography>
+                </Box>
+
+                <Button
+                    component={Link}
+                    to={tool.path}
+                    variant="contained"
+                    size="large"
+                    fullWidth
+                    sx={{
+                    borderRadius: 3,
+                    py: 1.5,
+                    fontWeight: "bold",
+                    fontSize: 17,
+                    }}
+                >
+                    ابدأ التنبؤ
+                </Button>
+                </CardContent>
+            </Card>
+            </Grid>
+        ))}
+        </Grid>
+    </Container>
+</Box>
     <Box   sx={{
         backgroundColor: "#ffffffff",
         minHeight: "100vh",

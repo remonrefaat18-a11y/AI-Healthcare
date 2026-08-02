@@ -13,6 +13,7 @@ import AddMeasurement from "../pages/Patient/AddMeasurement";
 import SearchDoctor from "../pages/Patient/SearchDoctor";
 import LandingPage from "../pages/Auth/LandingPage";
 import AddAppointment from "../pages/Patient/AddAppointment";
+import LiverPrediction from "../pages/AI/LiverPrediction";
 
 
 import ProtectedRoute from "../components/ProtectedRoute"; // ✅ استيراد مكون الحماية
@@ -25,6 +26,7 @@ export default function AppRoutes() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/liver-prediction" element={<LiverPrediction />} />
         {/* صفحات الطبيب - محمية */}
         <Route
           path="/doctor/profile"
