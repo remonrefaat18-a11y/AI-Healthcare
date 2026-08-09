@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-import DoctorCard from "../../components/doctorCard";
+import DoctorCard from "../../Components/doctorCard";
 import { useNavigate } from "react-router-dom";
 
 
