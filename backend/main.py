@@ -4,7 +4,7 @@ import joblib
 from fastapi.middleware.cors import CORSMiddleware
 from schemas.kidney_schema import KidneyInput
 import pandas as pd
-
+from pathlib import Path
 
 
 app = FastAPI()
@@ -17,8 +17,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-model_1 = joblib.load("models/best_model.joblib")
-model_2 = joblib.load("models/random_forest_model.joblib")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+
+model_1 = joblib.load(
+    BASE_DIR / "models" / "best_model.joblib"
+)
+
+model_2 = joblib.load(
+    BASE_DIR / "models" / "random_forest_model.joblib"
+)
 
 
 @app.get("/")
