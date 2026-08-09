@@ -30,7 +30,7 @@ model_2 = joblib.load(
 )
 
 
-@app.get("/")
+@app.get("/api")
 def home():
     return {"message": "Backend is Running Successfully"}
 
@@ -39,7 +39,7 @@ def home():
 def health():
     return {"status": "healthy"}
 
-@app.post("/liver-predict")
+@app.post("/api/liver-predict")
 def liver_predict(data: LiverInput):
 
     features = [[
@@ -62,7 +62,7 @@ def liver_predict(data: LiverInput):
         "confidence": round(float(confidence), 2)
     }
 
-@app.post("/kidney-predict")
+@app.post("/api/kidney-predict")
 def kidney_predict(data: KidneyInput): 
         
     data=data.model_dump()
