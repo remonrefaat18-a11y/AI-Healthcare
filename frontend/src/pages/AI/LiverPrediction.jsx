@@ -78,7 +78,7 @@
 const handlePredict = async () => {
 
     const response = await axios.post(
-        "http://127.0.0.1:8000/liver-predict",
+        "https://ai-healthcare-murex.vercel.app/api/liver-predict",
         formData
     );
 
