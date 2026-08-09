@@ -11,7 +11,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["https://ai-healthcare-ttek-ho912ngzv-remons-projects-22c8ac70.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
