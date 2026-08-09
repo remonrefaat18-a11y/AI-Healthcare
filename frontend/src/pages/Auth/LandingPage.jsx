@@ -33,10 +33,10 @@ function LandingPage()
         path: "/liver-prediction",
     },
         {
-            title: "التنبؤ بأمراض الكبد",
+            title: "التنبؤ بأمراض الكلى",
             description:
-            "اكتشف احتمالية الإصابة بأمراض الكبد باستخدام نموذج تعلم آلي مدرب بدقة.",
-            path: "/liver-prediction",
+            "اكتشف احتمالية الإصابة بأمراض الكلى باستخدام نموذج تعلم آلي مدرب بدقة.",
+            path: "/kidney-prediction",
         }
 ];
 

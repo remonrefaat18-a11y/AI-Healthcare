@@ -13,6 +13,8 @@
     import axios from "axios";
     import { Alert } from "@mui/material";
     import { Stack } from "@mui/material";
+    import BiotechIcon from '@mui/icons-material/Biotech';
+
 
     export default function LiverPrediction() {
     const fields = [
@@ -129,7 +131,7 @@ const handleReset = () => {
             }}
             >
             <Box textAlign="center" mb={5}>
-                <PsychologyIcon
+                <BiotechIcon
                 sx={{
                     fontSize: 70,
                     color: "#1976d2",
