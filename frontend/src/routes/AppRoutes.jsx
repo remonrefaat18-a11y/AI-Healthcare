@@ -17,7 +17,7 @@ import LiverPrediction from "../pages/AI/LiverPrediction";
 import KidneyPrediction from "../pages/AI/KidneyPrediction";
 
 
-import ProtectedRoute from "../components/ProtectedRoute"; // ✅ استيراد مكون الحماية
+import ProtectedRoute from "../Components/ProtectedRoute"; // ✅ استيراد مكون الحماية
 
 export default function AppRoutes() {
   return (
