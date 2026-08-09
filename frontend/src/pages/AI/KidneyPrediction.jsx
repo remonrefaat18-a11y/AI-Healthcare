@@ -359,7 +359,7 @@ const KidneyPrediction = () => {
         try {
 
             const response = await axios.post(
-                "http://127.0.0.1:8000/kidney-predict",
+                "https://ai-healthcare-murex.vercel.app/api/kidney-predict",
                 formData
             );
 
