@@ -20,7 +20,8 @@ import {
 
     Grid,
     Button,
-    Stack
+    Stack,
+    Chip
 } from "@mui/material";
 
 function LandingPage()
@@ -119,24 +120,156 @@ function LandingPage()
     </Box>
     <Box
     sx={{
-        backgroundColor: "#f0f9ffff",
+        position: "relative",
+        overflow: "hidden",
+        background: "#f0f9ffff",
         minHeight: "40vh",
         display: "flex",
-        justifyContent: "space-between",
+        alignItems: "center",
+        justifyContent: "center",
+        py: { xs: 8, md: 10 },
     }}
     >
-        <Container maxWidth="sm">
-            <Typography variant="h3" align="center" sx={{ pt: 8,fontSize:65 }}>
-                منصة إدارة الصحة الذكية
-            </Typography>
-            <Typography variant="subtitle1" align="center" sx={{ mb: 3,fontSize:20 }}>
-تتبع صحتك اليومية، احجز مواعيد مع أفضل الأطباء، واحصل على تقارير طبية شاملة
-            </Typography>
-            <Stack spacing={2} direction="row" sx={{justifyContent: "center"}}>
-                    <Button variant="contained" component={Link} to="/login"  size="large" sx={{ fontSize:20 }}>انضم كطبيب</Button>
-                    <Button variant="outlined" component={Link} to="/login"  size="large" sx={{ fontSize:20 }}>ابدا كمريض</Button>
-            </Stack>
-        </Container>
+    {/* faint heartbeat line — draws in on load */}
+    <Box
+        component="svg"
+        viewBox="0 0 400 80"
+        sx={{
+        position: "absolute",
+        top: "18%",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: { xs: "140%", md: "60%" },
+        maxWidth: 900,
+        opacity: 0.12,
+        pointerEvents: "none",
+        }}
+    >
+        <path
+        d="M0,40 L80,40 L95,15 L110,65 L125,10 L140,70 L155,40 L400,40"
+        fill="none"
+        stroke="#0F6E67"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        pathLength="1"
+        style={{
+            strokeDasharray: 1,
+            strokeDashoffset: 1,
+            animation: "drawPulse 3.2s ease-out forwards",
+        }}
+        />
+    </Box>
+
+    <Container maxWidth="sm" sx={{ position: "relative", zIndex: 1 }}>
+        <Stack alignItems="center" spacing={2.5}>
+        <Chip
+            icon={
+            <Box
+                sx={{
+                width: 8,
+                height: 8,
+                borderRadius: "50%",
+                bgcolor: "#0F6E67",
+                mx: 1,
+                animation: "pulseDot 1.8s infinite",
+                }}
+            />
+            }
+            label="منصة طبية موثوقة"
+            sx={{
+            bgcolor: "#FFFFFF",
+            border: "1px solid #CFE8E2",
+            color: "#0F6E67",
+            fontFamily: "'Tajawal', sans-serif",
+            fontWeight: 600,
+            "& .MuiChip-label": { px: 1 },
+            }}
+        />
+
+        <Typography
+            variant="h3"
+            align="center"
+            sx={{
+            fontFamily: "'Tajawal', sans-serif",
+            fontWeight: 800,
+            fontSize: { xs: 34, sm: 48, md: 58 },
+            lineHeight: 1.25,
+            color: "#0B3B36",
+            }}
+        >
+            منصة إدارة الصحة الذكية
+        </Typography>
+
+        <Typography
+            variant="subtitle1"
+            align="center"
+            sx={{
+            fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+            fontSize: { xs: 16, md: 19 },
+            color: "#4B6664",
+            maxWidth: 480,
+            lineHeight: 1.9,
+            }}
+        >
+            تتبع صحتك اليومية، احجز مواعيد مع أفضل الأطباء، واحصل على تقارير طبية شاملة
+        </Typography>
+
+        <Stack
+            spacing={2}
+            direction={{ xs: "column", sm: "row" }}
+            sx={{ justifyContent: "center", pt: 1, width: "100%", maxWidth: 380 }}
+        >
+            <Button
+            component={Link}
+            to="/login"
+            variant="contained"
+            size="large"
+            fullWidth
+            sx={{
+                fontFamily: "'Tajawal', sans-serif",
+                fontSize: 18,
+                fontWeight: 700,
+                borderRadius: "10px",
+                py: 1.4,
+                bgcolor: "#0F6E67",
+                boxShadow: "0 8px 20px rgba(15,110,103,0.25)",
+                "&:hover": { bgcolor: "#0B5852" },
+            }}
+            >
+            انضم كطبيب
+            </Button>
+            <Button
+            component={Link}
+            to="/login"
+            variant="outlined"
+            size="large"
+            fullWidth
+            sx={{
+                fontFamily: "'Tajawal', sans-serif",
+                fontSize: 18,
+                fontWeight: 700,
+                borderRadius: "10px",
+                py: 1.4,
+                borderWidth: 2,
+                borderColor: "#0F6E67",
+                color: "#0F6E67",
+                "&:hover": { borderWidth: 2, borderColor: "#0B5852", bgcolor: "rgba(15,110,103,0.06)" },
+            }}
+            >
+            ابدا كمريض
+            </Button>
+        </Stack>
+        </Stack>
+    </Container>
+
+    <style>{`
+        @keyframes drawPulse { to { stroke-dashoffset: 0; } }
+        @keyframes pulseDot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(1.4); }
+        }
+    `}</style>
     </Box>
     <Box
     sx={{
@@ -290,64 +423,167 @@ function LandingPage()
         </Grid>
     </Container>
 </Box>
-    <Box   sx={{
-        backgroundColor: "#ffffffff",
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "space-between",
-            }}
-    >
-        <Container maxWidth="lg">
-            <Typography variant="h4" align="center" sx={{ pt: 12 }}>
-                        مميزات المنصة
-            </Typography>
-            <Typography variant="subtitle1" align="center" sx={{  pt:1,fontSize:20 }}>
-                    كل ما تحتاجه لإدارة صحتك في مكان واحد
-            </Typography>
-                <Box sx={{ flexGrow: 1, p: 5 }}>
-        <Grid container spacing={3} justifyContent="center">
-            {features.map((feature, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-                <Paper
-                elevation={3}
+<Box sx={{ backgroundColor: "#FFFFFF", minHeight: "100vh" }}>
+  <Container maxWidth="lg">
+    <Box sx={{ textAlign: "center", pt: 12, pb: 1 }}>
+      <Typography
+        variant="h4"
+        sx={{
+          fontFamily: "'Tajawal', sans-serif",
+          fontWeight: 800,
+          color: "#0B3B36",
+        }}
+      >
+        مميزات المنصة
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+          fontSize: 18,
+          color: "#5C7875",
+          mt: 1,
+        }}
+      >
+        كل ما تحتاجه لإدارة صحتك في مكان واحد
+      </Typography>
+
+      {/* signature underline, echoes the hero's pulse-line accent */}
+      <Box
+        sx={{
+          width: 64,
+          height: 4,
+          borderRadius: 2,
+          mx: "auto",
+          mt: 2.5,
+          background: "linear-gradient(90deg, #0F6E67, #D98E3F)",
+        }}
+      />
+    </Box>
+
+    <Box sx={{ flexGrow: 1, p: 5 }}>
+      <Grid container spacing={3} justifyContent="center">
+        {features.map((feature, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Paper
+              elevation={0}
+              sx={{
+                position: "relative",
+                overflow: "hidden",
+                p: 4,
+                height: "100%",
+                textAlign: "center",
+                borderRadius: 3,
+                border: "1px solid #E3EFEC",
+                transition: "0.3s",
+                "&:hover": {
+                  transform: "translateY(-5px)",
+                  boxShadow: "0 12px 24px rgba(15,110,103,0.12)",
+                  borderColor: "#CFE8E2",
+                },
+                "&:hover .accent-bar": { transform: "scaleX(1)" },
+              }}
+            >
+              {/* growing top accent, hidden until hover */}
+              <Box
+                className="accent-bar"
                 sx={{
-                    p: 4,
-                    textAlign: "center",
-                    borderRadius: 4,
-                    transition: "0.3s",
-                    "&:hover": { transform: "translateY(-5px)", boxShadow: 6 },
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 4,
+                  background: "linear-gradient(90deg, #0F6E67, #D98E3F)",
+                  transform: "scaleX(0)",
+                  transformOrigin: "center",
+                  transition: "transform 0.3s ease",
                 }}
-                >
+              />
+
+              <Box
+                sx={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: "50%",
+                  bgcolor: "rgba(15,110,103,0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  mx: "auto",
+                  mb: 2,
+                }}
+              >
                 {feature.icon}
-                <Typography variant="h6" sx={{ mt: 2, fontWeight: "bold" }}>
-                    {feature.title}
-                </Typography>
-                <Typography variant="body2" sx={{ mt: 1, color: "text.secondary" }}>
-                    {feature.desc}
-                </Typography>
-                </Paper>
-            </Grid>
-            ))}
-        </Grid>
-        </Box>
-    </Container>
-    </Box>
-    <Box sx={{backgroundColor: "#111010ff" ,minHeight: "20vh"}}
-    >
-        <Typography variant="h4" align="center" sx={{ pt: 3,color:"white" }}>
-            <span style={{ color: "blue", fontSize: 50 }}>
-                <FavoriteBorderIcon
-                sx={{ fontSize: 50, verticalAlign: "middle" }}
-                />
-            </span>{" "}
-            صحتي
-            </Typography>
+              </Box>
 
-            <Typography variant="subtitle1" align="center" sx={{ mb: 3,color:"white" }}>
-            منصة إدارة الصحة الذكية - جميع الحقوق محفوظة 2024
-            </Typography>
-
+              <Typography
+                variant="h6"
+                sx={{
+                  fontFamily: "'Tajawal', sans-serif",
+                  fontWeight: 700,
+                  color: "#0B3B36",
+                }}
+              >
+                {feature.title}
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+                  mt: 1,
+                  color: "#5C7875",
+                  lineHeight: 1.8,
+                }}
+              >
+                {feature.desc}
+              </Typography>
+            </Paper>
+          </Grid>
+        ))}
+      </Grid>
     </Box>
+  </Container>
+</Box>
+
+<Box
+  sx={{
+    background: "linear-gradient(135deg, #0B3B36 0%, #0F6E67 100%)",
+    minHeight: "20vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    py: 4,
+  }}
+>
+  <Typography
+    variant="h4"
+    align="center"
+    sx={{
+      fontFamily: "'Tajawal', sans-serif",
+      fontWeight: 800,
+      color: "white",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 1,
+    }}
+  >
+    <FavoriteBorderIcon sx={{ fontSize: 40, color: "blue" }} />
+    صحتي
+  </Typography>
+
+  <Typography
+    variant="subtitle1"
+    align="center"
+    sx={{
+      fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+      mt: 1.5,
+      color: "rgba(255,255,255,0.7)",
+    }}
+  >
+    منصة إدارة الصحة الذكية - جميع الحقوق محفوظة 2024
+  </Typography>
+</Box>
         </>
     );
 }

@@ -175,7 +175,8 @@ function Register() {
               <Typography
                 variant="h4"
                 align="center"
-                sx={{ fontSize: { xs: "1.6rem", md: "2rem" } }}
+                sx={{ fontSize: { xs: "1.6rem", md: "2rem" } , fontFamily: "'Tajawal', sans-serif",
+          fontWeight: 800 }}
               >
                 إنشاء حساب جديد
               </Typography>
@@ -187,6 +188,8 @@ function Register() {
                   mb: 2,
                   fontSize: { xs: "0.95rem", md: "1rem" },
                   color: "text.secondary",
+                  fontFamily: "'Tajawal', sans-serif",
+          fontWeight: 200
                 }}
               >
                 انضم إلى منصة صحتي واحصل على رعاية صحية متطورة

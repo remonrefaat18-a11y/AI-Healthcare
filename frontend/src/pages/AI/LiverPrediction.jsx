@@ -156,7 +156,7 @@ const handleReset = () => {
 
             <Grid container spacing={3}>
                 {fields.map((field) => (
-                <Grid item xs={12} sm={6} key={field.name}>
+                <Grid item xs={12} sm={6} md={6} key={field.name}>
                     <TextField
                     fullWidth
                     type="number"
